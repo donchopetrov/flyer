@@ -17,6 +17,7 @@ elixir(function(mix) {
 		'vendor/jquery-1.11.3.min.js',
        		'vendor/sweetalert-dev.js',
 		'vendor/bootstrap.min.js'
+		
        	], './public/js/vendor.js')
        .styles([
        		'vendor/sweetalert.css'

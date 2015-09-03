@@ -16,18 +16,19 @@
 					<img src="/{{ $photo->thumbnail_path }}" alt="">
 				</div>
 				@endforeach
+
 			</div>
 			@endforeach
+
+			@if($user->owns($flyer))
+				<hr>
+
+				<form action="{{ route('store_photo_path', [$flyer->zip, $flyer->street]) }}" method="POST" class="dropzone" id="addPhotosForm">
+					{{ csrf_field() }}
+				</form>
+			@endif
 		</div>
 	</div>
-
-	<hr>
-
-	<h2>Add Your Photos</h2>
-
-	<form action="{{ route('store_photo_path', [$flyer->zip, $flyer->street]) }}" method="POST" class="dropzone" id="addPhotosForm">
-		{{ csrf_field() }}
-	</form>
 @stop
 
 @section('scripts.footer')

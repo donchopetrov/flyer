@@ -21,12 +21,17 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/flyers/create">Create a Flyer</a></li>
+                        <li class="{{ setActive('flyers') }}"><a href="/flyers">Browser Flyers</a></li>
+                        <li class="{{ setActive('flyers/create') }}"><a href="/flyers/create">Create a Flyer</a></li>
                     </ul>
-                    @if($user)
-                    <p class="navbar-text navbar-right">Logged as {{ $user->name }}</p>
-                    @endif
+                    <ul class="nav navbar-nav navbar-right">
+                        @if($user)
+                        <p class="navbar-text">Logged as {{ $user->name }}</p>
+                        <li class="{{ setActive('auth/login') }}"><a href="/auth/logout">Logout</a></li>
+                        @else
+                        <li class="{{ setActive('auth/login') }}"><a href="/auth/login">Login</a></li>
+                        @endif
+                    </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
